@@ -4,29 +4,25 @@ if nc -zw1 google.com 443; then
     echo "we have connectivity"
     clear
     echo "Welcome to the arch linux installation script!"
-    echo ""
-    echo ""
-    echo "                     -`"
-    echo "                    .o+`"
-    echo "                   `ooo/"
-    echo "                  `+oooo:"
-    echo "                 `+oooooo:"
-    echo "                 -+oooooo+:"
-    echo "               `/:-:++oooo+:"
-    echo "              `/++++/+++++++:"
-    echo "             `/++++++++++++++:"
-    echo "            `/+++ooooooooooooo/`"
-    echo "           ./ooosssso++osssssso+`"
-    echo "          .oossssso-````/ossssss+`"
-    echo "         -osssssso.      :ssssssso."
-    echo "        :osssssss/        osssso+++."
-    echo "       /ossssssss/        +ssssooo/-"
-    echo "     `/ossssso+/:-        -:/+osssso+-"
-    echo "    `+sso+:-`                 `.-/+oso:"
-    echo "   `++:.                           `-/+/"
-    echo "   .`                                 `"
-    echo ""
-    echo ""
+    echo                      -`
+    echo                     .o+`
+    echo                    `ooo/
+    echo                   `+oooo:
+    echo                  `+oooooo:
+    echo                  -+oooooo+:
+    echo                `/:-:++oooo+:
+    echo               `/++++/+++++++:
+    echo              `/++++++++++++++:
+    echo             `/+++ooooooooooooo/`
+    echo            ./ooosssso++osssssso+`
+    echo           .oossssso-````/ossssss+`
+    echo          -osssssso.      :ssssssso.
+    echo         :osssssss/        osssso+++.
+    echo        /ossssssss/        +ssssooo/-
+    echo      `/ossssso+/:-        -:/+osssso+-
+    echo     `+sso+:-`                 `.-/+oso:
+    echo     `++:.                           `-/+/
+    echo    .`                                 `
 
     # Mappatura del disco!!!!
 
@@ -90,7 +86,7 @@ if nc -zw1 google.com 443; then
     grub-mkconfig -o /boot/grub/grub.cfg
     pacman -S cups neofetch vim htop cmatrix
     sudo systemctl start org.cups.cupsd
-    
+
 
 else
     echo "Error: we are non connected"
