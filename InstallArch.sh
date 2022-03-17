@@ -1,28 +1,9 @@
 #/bin/sh
 
 if nc -zw1 google.com 443; then  
-    echo "we have connectivity"
     clear
-    echo "Welcome to the arch linux installation script!"
-    echo                      -`
-    echo                     .o+`
-    echo                    `ooo/
-    echo                   `+oooo:
-    echo                  `+oooooo:
-    echo                  -+oooooo+:
-    echo                `/:-:++oooo+:
-    echo               `/++++/+++++++:
-    echo              `/++++++++++++++:
-    echo             `/+++ooooooooooooo/`
-    echo            ./ooosssso++osssssso+`
-    echo           .oossssso-````/ossssss+`
-    echo          -osssssso.      :ssssssso.
-    echo         :osssssss/        osssso+++.
-    echo        /ossssssss/        +ssssooo/-
-    echo      `/ossssso+/:-        -:/+osssso+-
-    echo     `+sso+:-`                 `.-/+oso:
-    echo     `++:.                           `-/+/
-    echo    .`                                 `
+    echo "we have connectivity"
+    echo "Welcome to the arch linux installation script!"                               `
 
     # Mappatura del disco!!!!
 
@@ -52,8 +33,8 @@ if nc -zw1 google.com 443; then
     pacstrap /mnt base base-devel linux linux-firmware nano
     echo "Generating fstab..."
     genfstab -U -p /mnt > /mnt/etc/fstab
-    echo "Executing chroot..."
-    arch-chroot /mnt /bin/bash
+
+    cat <<EOF > /mnt/root/part2.sh
     echo "Generating locale..."
     nano /etc/locale.gen
     locale-gen
@@ -86,7 +67,14 @@ if nc -zw1 google.com 443; then
     grub-mkconfig -o /boot/grub/grub.cfg
     pacman -S cups neofetch vim htop cmatrix
     sudo systemctl start org.cups.cupsd
-
+    exit
+    EOF
+    
+    echo "Executing chroot..."
+    arch-chroot /mnt /bin/bash /root/part2.sh
+    echo "Installation completed!"
+    read -p "Press enter to reboot..." nw
+    reboot
 
 else
     echo "Error: we are non connected"
