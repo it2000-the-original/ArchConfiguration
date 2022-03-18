@@ -1,3 +1,4 @@
+#/bin/bash
 echo "Generating locale..."
 nano /etc/locale.gen
 locale-gen

@@ -34,10 +34,12 @@ if nc -zw1 google.com 443; then
     genfstab -U -p /mnt > /mnt/etc/fstab
 
     echo "Executing chroot..."
-    arch-chroot /mnt /bin/bash ChrootBash.sh
+    cp -f ChrootBash.sh /mnt/root
+    arch-chroot /mnt /bin/bash ./ChrootBash.sh
     
     echo "Installation completed!"
     read -p "Press enter to reboot..." nw
+    rm -rf /mnt/root/ChrootBash.sh
     reboot
 
 else
