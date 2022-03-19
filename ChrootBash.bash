@@ -9,6 +9,7 @@ read -p "Insert the editor to add: " editor
 echo KEYMAP=$keymap > /etc/vconsole.conf
 echo EDITOR=$editor > /etc/vconsole.conf
 export EDITOR=nano
+export KEYMAP=it
 read -p "Insert the zoneinfo city (for example Europe/Rome): " zone
 ln -s /usr/share/zoneinfo/$zone /etc/localtime
 hwclock --systohc --utc
@@ -24,7 +25,7 @@ read -p "Insert the name of your normal user: " user
 useradd -m -G wheel -s /bin/bash "$user"
 echo "And now insert the password"
 passwd "$user"
-echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.tmp
+visudo
 echo "Installing the grub..."
 pacman -S grub efibootmgr os-prober
 grub-install
