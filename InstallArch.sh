@@ -22,7 +22,7 @@ if nc -zw1 google.com 443; then
     mkswap $swappart
     echo "Mounting partitions..."
     mount $rootpart /mnt
-    mkdir -np /mnt/boot/efi
+    mkdir -p /mnt/boot/efi
     mount $efipart /mnt/boot/efi
     swapon $swappart
     echo "Generating mirrors..."
