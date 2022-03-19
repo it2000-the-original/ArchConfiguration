@@ -4,12 +4,8 @@ nano /etc/locale.gen
 locale-gen
 echo LANG=it_IT.UTF-8 > /etc/locale.conf
 export LANG=it_IT.UTF-8
-read -p "Insert the keymap to add: " keymap
-read -p "Insert the editor to add: " editor
-echo KEYMAP=$keymap > /etc/vconsole.conf
-echo EDITOR=$editor > /etc/vconsole.conf
+nano /etc/vconsole.conf
 export EDITOR=nano
-export KEYMAP=it
 read -p "Insert the zoneinfo city (for example Europe/Rome): " zone
 ln -s /usr/share/zoneinfo/$zone /etc/localtime
 hwclock --systohc --utc
