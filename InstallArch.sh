@@ -36,7 +36,7 @@ if nc -zw1 google.com 443; then
     echo "Executing chroot..."
     cp -f ChrootBash.bash /mnt
     arch-chroot /mnt ./ChrootBash.bash
-    
+    cp fonts/* /mnt/usr/share/fonts
     echo "Installation completed!"
     read -p "Press enter to reboot..." nw
     rm -rf /mnt/ChrootBash.bash
