@@ -30,33 +30,8 @@ systemctl start org.cups.cupsd
 pacman -S snapd flatpak
 systemctl enable snapd.service
 pacman -S xorg xorg-server
-echo "Please, select your video driver type"
-echo "1) Nvidia driver"
-echo "2) Amd driver"
-echo "3) Intel driver"
-echo "4) Generic driver"
-read -p "Insert your option: " option
-
-if [$option == 1]; then
-    echo "Installing nvdia..."
-    pacman -S nvidia
-fi
-
-if [$option == 2]; then
-    echo "Installing amd driver..."
-    pacman -S xf86-video-amdgpu
-fi
-
-if [$option == 3]; then
-    echo "Installing intel driver..."
-    pacman -S xf86-video-intel
-fi
-
-if [$option == 4]; then
-    echo "Installing generic driver..."
-    pacman -S xf86-video-vesa
-fi
-
+read -p "Insert the video driver to install: " driver
+pacman -S $driver
 echo "Installation completed"
 pacman -S xorg-server xorg-xinit
 mkdir work
