@@ -25,21 +25,13 @@ echo "Installing the grub..."
 pacman -S grub efibootmgr os-prober
 grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
-pacman -S cups neofetch vim htop cmatrix
-systemctl start org.cups.cupsd
+pacman -S cups neofetch vim htop cmatrix git
+systemctl enable cups
 pacman -S snapd flatpak
-systemctl enable snapd.service
-pacman -S xorg xorg-server
+systemctl enable snapd.socket
 read -p "Insert the video driver to install: " driver
 pacman -S $driver
 echo "Installation completed"
-pacman -S xorg-server xorg-xinit
-mkdir work
-cd work
-git clone https://aur.archlinux.org/yay.git
-cd yay 
-makepkg -si
-cd ..
-yay -S pamac-all
-pacman -S gnome ttf-dejavu alacarte
+pacman -S xorg xorg-server xorg-xinit
+pacman -S gnome ttf-dejavu ttf-ms-fonts alacarte gnome-tweaks
 systemctl enable gdm.service
