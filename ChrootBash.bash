@@ -33,5 +33,5 @@ read -p "Insert the video driver to install: " driver
 pacman -S $driver
 echo "Installation completed"
 pacman -S xorg xorg-server xorg-xinit
-pacman -S gnome ttf-dejavu ttf-ms-fonts alacarte gnome-tweaks
+pacman -S gnome ttf-dejavu alacarte gnome-tweaks
 systemctl enable gdm.service
