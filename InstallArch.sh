@@ -14,7 +14,6 @@ if nc -zw1 google.com 443; then
     read -p "Insert the efi partition: " efipart
     read -p "Insert the swap partition: " swappart
 
-    echo "The partitions exists!!!"
     echo "Formatting partitions..."
     mkfs.vfat -F32 $efipart
     mkfs.ext4 $rootpart
