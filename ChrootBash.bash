@@ -27,8 +27,7 @@ grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S cups neofetch vim htop cmatrix git
 systemctl enable cups
-pacman -S snapd flatpak
-systemctl enable snapd.socket
+pacman -S flatpak
 read -p "Insert the video driver to install: " driver
 pacman -S $driver
 echo "Installation completed"
