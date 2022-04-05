@@ -7,7 +7,6 @@ if nc -zw1 google.com 443; then
     # Mappatura del disco!!!!
 
     read -p "press any key to continue..." as
-    cfdisk
     echo "This is the actual disks list!!"
     fdisk -l
 
